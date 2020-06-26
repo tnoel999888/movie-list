@@ -56,11 +56,11 @@
                 {% for row in ratingsTitleSorted %}
                     {% assign currentRating = row.Rating %}
                     {% if row.Rating == " 1" %}
-                        {% assign ratingValue = "Disliked" %}
+                        {% assign ratingValue = "Bad" %}
                     {% elsif row.Rating == " 2" %}
-                        {% assign ratingValue = "Average" %}
+                        {% assign ratingValue = "Alright" %}
                     {% elsif row.Rating == " 3" %}
-                        {% assign ratingValue = "Liked" %}
+                        {% assign ratingValue = "Good" %}
                     {% elsif row.Rating == " 4" %}
                         {% assign ratingValue = "Loved" %}
                     {% endif %}
