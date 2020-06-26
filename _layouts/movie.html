@@ -46,23 +46,19 @@
         <p class="filter-wrap"><input type="text" id="filter" onkeyup="filter()" placeholder="Search..." /></p>
 
         <div class="list">
-            {% assign lastRating = " 6" %}
+            {% assign lastRating = " 4" %}
             {% for r in ratingsSorted %}
                 {% assign ratingsTitleSorted = r.items | sort:'Name' %}
                 {% for row in ratingsTitleSorted %}
                     {% assign currentRating = row.Rating %}
                     {% if row.Rating == " 1" %}
-                        {% assign ratingValue = "Hated" %}
+                        {% assign ratingValue = "Bas" %}
                     {% elsif row.Rating == " 2" %}
-                        {% assign ratingValue = "Disliked" %}
+                        {% assign ratingValue = "Alright" %}
                     {% elsif row.Rating == " 3" %}
-                        {% assign ratingValue = "Average" %}
+                        {% assign ratingValue = "Good" %}
                     {% elsif row.Rating == " 4" %}
-                        {% assign ratingValue = "Liked" %}
-                    {% elsif row.Rating == " 5" %}
                         {% assign ratingValue = "Loved" %}
-                    {% elsif row.Rating == " 6" %}
-                        {% assign ratingValue = "God tier" %}
                     {% endif %}
                     {% if lastRating != row.Rating %}
                         <div class="break"></div>
@@ -71,6 +67,8 @@
                     <div class="item rating-{{ row.Rating | strip }}">
                         <span class="name">{{ row.Name }}</span>
                         <span class="rating">{{ ratingValue }}</span>
+                        <span class="rating">{{ lastRating }}</span>
+                        <span class="rating">{{ row.Rating }}</span>
                     </div>
                 {% endfor %}
             {% endfor %}
