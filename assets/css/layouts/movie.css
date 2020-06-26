@@ -91,6 +91,7 @@
     background: #669f11;
     color: #fff;
 } */
+
 /* 
 .rating-4 {
     background: #9bad0f;
@@ -98,11 +99,11 @@
 } */
 
 .rating-3 {
-    background: #dcb20e;
+    background: #9bad0f;
 }
 
 .rating-2 {
-    background: #c9550e;
+    background: #dcb20e;
     color: #fff;
 }
 
