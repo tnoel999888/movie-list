@@ -28,23 +28,17 @@
                     {% for i in (0..4) %}
                         <div class="last-5-item rating-{{ movies[i].Rating | strip }}">
                             <span class="name">{{ movies[i].Name }}</span>
-                            {% if movies[i].Rating == " 1" %}
-                                <span class="rating">Hated</span>
+                            {% elsif movies[i].Rating == " 1" %}
+                                <span class="rating">Bad</span>
                                 <span class="rating">{{ movies[i].Date }}</span>
                             {% elsif movies[i].Rating == " 2" %}
-                                <span class="rating">Disliked</span>
+                                <span class="rating">Alright</span>
                                 <span class="rating">{{ movies[i].Date }}</span>
                             {% elsif movies[i].Rating == " 3" %}
-                                <span class="rating">Average</span>
+                                <span class="rating">Good</span>
                                 <span class="rating">{{ movies[i].Date }}</span>
                             {% elsif movies[i].Rating == " 4" %}
-                                <span class="rating">Liked</span>
-                                <span class="rating">{{ movies[i].Date }}</span>
-                            {% elsif movies[i].Rating == " 5" %}
                                 <span class="rating">Loved</span>
-                                <span class="rating">{{ movies[i].Date }}</span>
-                            {% elsif movies[i].Rating == " 6" %}
-                                <span class="rating">God tier</span>
                                 <span class="rating">{{ movies[i].Date }}</span>
                             {% endif %}
                         </div>
@@ -56,23 +50,19 @@
         <p class="filter-wrap"><input type="text" id="filter" onkeyup="filter()" placeholder="Search..." /></p>
 
         <div class="list">
-            {% assign lastRating = " 6" %}
+            {% assign lastRating = " 4" %}
             {% for r in ratingsSorted %}
                 {% assign ratingsTitleSorted = r.items | sort:'Name' %}
                 {% for row in ratingsTitleSorted %}
                     {% assign currentRating = row.Rating %}
-                    {% if row.Rating == " 1" %}
-                        {% assign ratingValue = "Hated" %}
-                    {% elsif row.Rating == " 2" %}
+                    {% elsif row.Rating == " 1" %}
                         {% assign ratingValue = "Disliked" %}
-                    {% elsif row.Rating == " 3" %}
+                    {% elsif row.Rating == " 2" %}
                         {% assign ratingValue = "Average" %}
-                    {% elsif row.Rating == " 4" %}
+                    {% elsif row.Rating == " 3" %}
                         {% assign ratingValue = "Liked" %}
-                    {% elsif row.Rating == " 5" %}
+                    {% elsif row.Rating == " 4" %}
                         {% assign ratingValue = "Loved" %}
-                    {% elsif row.Rating == " 6" %}
-                        {% assign ratingValue = "God tier" %}
                     {% endif %}
                     {% if lastRating != row.Rating %}
                         <div class="break"></div>
