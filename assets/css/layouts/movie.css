@@ -82,49 +82,29 @@
     font-size: 15px;
 }
 
-.rating-6 {
+.rating-4 {
     background: #209112;
     color: #fff;
 }
 
-/*.rating-9 {*/
-/*    background: #479611;*/
-/*    color: #fff;*/
-/*}*/
-
-.rating-5 {
+/* .rating-4 {
     background: #669f11;
     color: #fff;
-}
-
+} */
+/* 
 .rating-4 {
     background: #9bad0f;
     color: #fff;
-}
+} */
 
 .rating-3 {
     background: #dcb20e;
 }
 
-/*.rating-5 {*/
-/*    background: #eb900d;*/
-/*    color: #fff;*/
-/*}*/
-
-/*.rating-4 {*/
-/*    background: #e17c0e;*/
-/*    color: #fff;*/
-/*}*/
-
 .rating-2 {
     background: #c9550e;
     color: #fff;
 }
-
-/*.rating-2 {*/
-/*    background: #ac290f;*/
-/*    color: #fff;*/
-/*}*/
 
 .rating-1 {
     background: #9d100f;
