@@ -45,10 +45,16 @@
 
         <p class="filter-wrap"><input type="text" id="filter" onkeyup="filter()" placeholder="Search..." /></p>
 
+        <div>
+            <span>{{ ratingsSorted }}</span>
+        </div>
         <div class="list">
             {% assign lastRating = " 4" %}
             {% for r in ratingsSorted %}
                 {% assign ratingsTitleSorted = r.items | sort:'Name' %}
+                <div>
+                    <span>{{ ratingsTitleSorted }}</span>
+                </div>
                 {% for row in ratingsTitleSorted %}
                     {% assign currentRating = row.Rating %}
                     {% if row.Rating == " 1" %}
@@ -60,10 +66,6 @@
                     {% elsif row.Rating == " 4" %}
                         {% assign ratingValue = "Loved" %}
                     {% endif %}
-                    <div class="item rating-{{ row.Rating | strip }}">
-                        <span class="rating">{{ lastRating }}</span>
-                        <span class="rating">{{ row.Rating }}</span>
-                    </div>
                     {% if lastRating != row.Rating %}
                         <div class="break"></div>
                         {% assign lastRating = row.Rating %}
