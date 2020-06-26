@@ -30,16 +30,12 @@
                             <span class="name">{{ movies[i].Name }}</span>
                             {% if movies[i].Rating == " 1" %}
                                 <span class="rating">Bad</span>
-                                <span class="rating">{{ movies[i].Date }}</span>
                             {% elsif movies[i].Rating == " 2" %}
                                 <span class="rating">Alright</span>
-                                <span class="rating">{{ movies[i].Date }}</span>
                             {% elsif movies[i].Rating == " 3" %}
                                 <span class="rating">Good</span>
-                                <span class="rating">{{ movies[i].Date }}</span>
                             {% elsif movies[i].Rating == " 4" %}
                                 <span class="rating">Loved</span>
-                                <span class="rating">{{ movies[i].Date }}</span>
                             {% endif %}
                         </div>
                     {% endfor %}
