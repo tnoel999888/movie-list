@@ -16,31 +16,6 @@
 
         <div class="movie-top">
             <p class="total">Total {{ page.dataset }}: {{ mydata.size }}</p>
-
-
-            {% if page.dataset == "movies" %}
-            <div class="vertical-line"></div>
-
-            <div class="list">
-                    <p class="last5">Last 5 movies watched</p>
-                    <div class="break"></div>
-                    {% assign movies = site.data.movie-ratings | reverse  %}
-                    {% for i in (0..4) %}
-                        <div class="last-5-item rating-{{ movies[i].Rating | strip }}">
-                            <span class="name">{{ movies[i].Name }}</span>
-                            {% if movies[i].Rating == " 1" %}
-                                <span class="rating">Bad 👎</span>
-                            {% elsif movies[i].Rating == " 2" %}
-                                <span class="rating">Alright 👋</span>
-                            {% elsif movies[i].Rating == " 3" %}
-                                <span class="rating">Good 👍</span>
-                            {% elsif movies[i].Rating == " 4" %}
-                                <span class="rating">Loved ❤️</span>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-            </div>
-            {% endif %}
         </div>
 
         <p class="filter-wrap"><input type="text" id="filter" onkeyup="filter()" placeholder="Search..." /></p>
@@ -63,6 +38,16 @@
                 onclick="orderChronologicallyOldestNewest()" 
             >
             <label for="chronologicalOldestNewest">Chronological (Oldest - Newest)</label><br>
+
+            <input 
+                type="radio" 
+                id="alphabetically" 
+                name="order" 
+                value="alphabetically" 
+                onclick="orderAlphabetically()" 
+                checked
+            >
+            <label for="alphabetically">Alphabetical</label><br>
 
             <input 
                 type="radio" 
@@ -116,6 +101,27 @@
                 </div>
             </div>
 
+            <div id="alphabetical-list" style="display:none;">
+                <div class="list">
+                    {% assign myDataAlphabetical = (mydata | sort:'name') %}
+                    {% for row in myDataAlphabetical %}    
+                        {% if row.Rating == " 1" %}
+                            {% assign ratingValue = "Bad 👎" %}
+                        {% elsif row.Rating == " 2" %}
+                            {% assign ratingValue = "Alright 👋" %}
+                        {% elsif row.Rating == " 3" %}
+                            {% assign ratingValue = "Good 👍" %}
+                        {% elsif row.Rating == " 4" %}
+                            {% assign ratingValue = "Love ❤️" %}
+                        {% endif %}
+                        <div class="item rating-{{ row.Rating | strip }}">
+                            <span class="name">{{ row.Name }}</span>
+                            <span class="rating">{{ ratingValue }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
             <div id="grouped-list" style="display:none;">
                 <div class="list">
                     {% assign lastRating = " 4" %}
@@ -152,6 +158,9 @@
             const groupedList = document.getElementById('grouped-list');
             groupedList.style.display = "none";
 
+            const groupedList = document.getElementById('alphabetical-list');
+            groupedList.style.display = "none";
+
             const chronologicalOldestNewestList = document.getElementById('chronological-oldest-newest-list');
             chronologicalOldestNewestList.style.display = "none";
 
@@ -163,6 +172,9 @@
             const groupedList = document.getElementById('grouped-list');
             groupedList.style.display = "none";
 
+            const groupedList = document.getElementById('alphabetical-list');
+            groupedList.style.display = "none";
+
             const chronologicalOldestNewestList = document.getElementById('chronological-oldest-newest-list');
             chronologicalOldestNewestList.style.display = "";
 
@@ -170,10 +182,26 @@
             chronologicalNewestOldestList.style.display = "none";
         }
 
+        function orderAlphabetically() {
+            const groupedList = document.getElementById('grouped-list');
+            groupedList.style.display = "none";
+
+            const groupedList = document.getElementById('alphabetical-list');
+            groupedList.style.display = "";
+
+            const chronologicalOldestNewestList = document.getElementById('chronological-oldest-newest-list');
+            chronologicalOldestNewestList.style.display = "none";
+
+            const chronologicalNewestOldestList = document.getElementById('chronological-newest-oldest-list');
+            chronologicalNewestOldestList.style.display = "none";
+        }
         
         function orderGrouped() {
             const groupedList = document.getElementById('grouped-list');
             groupedList.style.display = "";
+
+            const groupedList = document.getElementById('alphabetical-list');
+            groupedList.style.display = "none";
 
             const chronologicalOldestNewestList = document.getElementById('chronological-oldest-newest-list');
             chronologicalOldestNewestList.style.display = "none";
