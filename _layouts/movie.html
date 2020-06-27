@@ -102,17 +102,17 @@
 
     <script>
         function orderChronologically() {
-            const list = document.getElementById('grouped-list');
-            list.style.display = "none";
-            const list = document.getElementById('chronological-list');
-            list.style.display = "";
+            const groupedList = document.getElementById('grouped-list');
+            groupedList.style.display = "none";
+            const chronologicalList = document.getElementById('chronological-list');
+            chronologicalList.style.display = "";
         }
         
         function orderGrouped() {
-            const list = document.getElementById('grouped-list');
-            list.style.display = "";
-            const list = document.getElementById('chronological-list');
-            list.style.display = "none";
+            const groupedList = document.getElementById('grouped-list');
+            groupedList.style.display = "";
+            const chronologicalList = document.getElementById('chronological-list');
+            chronologicalList.style.display = "none";
         }
         
         function filter() {
