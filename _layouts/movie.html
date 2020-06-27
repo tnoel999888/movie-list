@@ -70,7 +70,7 @@
                 {% endfor %}
             </div>
             
-            <div id="grouped-list" style="display:hidden;">
+            <div id="grouped-list">
                 {% assign lastRating = " 4" %}
                 {% for r in ratingsSorted %}
                     {% assign ratingsTitleSorted = r.items | sort:'Name' %}
