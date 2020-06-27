@@ -102,21 +102,23 @@
 
             <div id="alphabetical-list" style="display:none;">
                 <div class="list">
-                    {% assign myDataAlphabetical = (mydata | sort:'name') %}
-                    {% for row in myDataAlphabetical %}    
-                        {% if row.Rating == " 1" %}
-                            {% assign ratingValue = "Bad 👎" %}
-                        {% elsif row.Rating == " 2" %}
-                            {% assign ratingValue = "Alright 👋" %}
-                        {% elsif row.Rating == " 3" %}
-                            {% assign ratingValue = "Good 👍" %}
-                        {% elsif row.Rating == " 4" %}
-                            {% assign ratingValue = "Love ❤️" %}
-                        {% endif %}
-                        <div class="item rating-{{ row.Rating | strip }}">
-                            <span class="name">{{ row.Name }}</span>
-                            <span class="rating">{{ ratingValue }}</span>
-                        </div>
+                    {% for r in ratingsSorted %}
+                        {% assign ratingsTitleSorted = r.items | sort:'Name' %}
+                        {% for row in ratingsTitleSorted %}   
+                            {% if row.Rating == " 1" %}
+                                {% assign ratingValue = "Bad 👎" %}
+                            {% elsif row.Rating == " 2" %}
+                                {% assign ratingValue = "Alright 👋" %}
+                            {% elsif row.Rating == " 3" %}
+                                {% assign ratingValue = "Good 👍" %}
+                            {% elsif row.Rating == " 4" %}
+                                {% assign ratingValue = "Love ❤️" %}
+                            {% endif %}
+                            <div class="item rating-{{ row.Rating | strip }}">
+                                <span class="name">{{ row.Name }}</span>
+                                <span class="rating">{{ ratingValue }}</span>
+                            </div>
+                        {% endfor %}
                     {% endfor %}
                 </div>
             </div>
