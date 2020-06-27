@@ -77,9 +77,7 @@
         <div>
             <div id="chronological-newest-oldest-list">
                 <div class="list">
-                    {% assign myDataReversed = mydata.reverse %}
-                    <span class="name">{{ myDataReversed }}</span>
-
+                    {% assign myDataReversed = (mydata | reverse) %}
                     {% for row in myDataReversed %}    
                         {% if row.Rating == " 1" %}
                             {% assign ratingValue = "Bad 👎" %}
