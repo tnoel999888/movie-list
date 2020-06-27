@@ -47,16 +47,6 @@
         <p>
             <input 
                 type="radio" 
-                id="chronologicalOldestNewest" 
-                name="order" 
-                value="chronologicalOldestNewest" 
-                onclick="orderChronologicallyOldestNewest()" 
-                checked
-            >
-            <label for="chronologicalOldestNewest">Chronological (Oldest - Newest)</label><br>
-
-            <input 
-                type="radio" 
                 id="chronologicalNewestOldest" 
                 name="order" 
                 value="chronologicalNewestOldest" 
@@ -64,6 +54,15 @@
                 checked
             >
             <label for="chronologicalNewestOldest">Chronological (Newest - Oldest)</label><br>
+
+            <input 
+                type="radio" 
+                id="chronologicalOldestNewest" 
+                name="order" 
+                value="chronologicalOldestNewest" 
+                onclick="orderChronologicallyOldestNewest()" 
+            >
+            <label for="chronologicalOldestNewest">Chronological (Oldest - Newest)</label><br>
 
             <input 
                 type="radio" 
@@ -76,6 +75,27 @@
         </p>
 
         <div>
+            <div id="chronological-newest-oldest-list">
+                <div class="list">
+                    {% assign myDataReversed = mydata.reverse %}
+                    {% for row in myDataReversed %}    
+                        {% if row.Rating == " 1" %}
+                            {% assign ratingValue = "Bad 👎" %}
+                        {% elsif row.Rating == " 2" %}
+                            {% assign ratingValue = "Alright 👋" %}
+                        {% elsif row.Rating == " 3" %}
+                            {% assign ratingValue = "Good 👍" %}
+                        {% elsif row.Rating == " 4" %}
+                            {% assign ratingValue = "Love ❤️" %}
+                        {% endif %}
+                        <div class="item rating-{{ row.Rating | strip }}">
+                            <span class="name">{{ row.Name }}</span>
+                            <span class="rating">{{ ratingValue }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
             <div id="chronological-oldest-newest-list">
                 <div class="list">
                     {% for row in mydata %}    
@@ -96,26 +116,6 @@
                 </div>
             </div>
 
-            <div id="chronological-newest-oldest-list">
-                <div class="list">
-                    {% for row in mydata.reverse %}    
-                        {% if row.Rating == " 1" %}
-                            {% assign ratingValue = "Bad 👎" %}
-                        {% elsif row.Rating == " 2" %}
-                            {% assign ratingValue = "Alright 👋" %}
-                        {% elsif row.Rating == " 3" %}
-                            {% assign ratingValue = "Good 👍" %}
-                        {% elsif row.Rating == " 4" %}
-                            {% assign ratingValue = "Love ❤️" %}
-                        {% endif %}
-                        <div class="item rating-{{ row.Rating | strip }}">
-                            <span class="name">{{ row.Name }}</span>
-                            <span class="rating">{{ ratingValue }}</span>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-            
             <div id="grouped-list" style="display:none;">
                 <div class="list">
                     {% assign lastRating = " 4" %}
@@ -148,6 +148,17 @@
     </section>
 
     <script>
+        function orderChronologicallyNewestOldest() {
+            const groupedList = document.getElementById('grouped-list');
+            groupedList.style.display = "none";
+
+            const chronologicalOldestNewestList = document.getElementById('chronological-oldest-newest-list');
+            chronologicalOldestNewestList.style.display = "none";
+
+            const chronologicalNewestOldestList = document.getElementById('chronological-newest-oldest-list');
+            chronologicalNewestOldestList.style.display = "";
+        }
+
         function orderChronologicallyOldestNewest() {
             const groupedList = document.getElementById('grouped-list');
             groupedList.style.display = "none";
@@ -159,16 +170,6 @@
             chronologicalNewestOldestList.style.display = "none";
         }
 
-        function orderChronologicallyNewestOldest() {
-            const groupedList = document.getElementById('grouped-list');
-            groupedList.style.display = "none";
-
-            const chronologicalOldestNewestList = document.getElementById('chronological-oldest-newest-list');
-            chronologicalOldestNewestList.style.display = "none";
-
-            const chronologicalNewestOldestList = document.getElementById('chronological-newest-oldest-list');
-            chronologicalNewestOldestList.style.display = "";
-        }
         
         function orderGrouped() {
             const groupedList = document.getElementById('grouped-list');
