@@ -102,23 +102,21 @@
 
             <div id="alphabetical-list" style="display:none;">
                 <div class="list">
-                    {% for r in ratingsSorted %}
-                        {% assign ratingsTitleSorted = r.items | sort:'Name' %}
-                        {% for row in ratingsTitleSorted %}   
-                            {% if row.Rating == " 1" %}
-                                {% assign ratingValue = "Bad 👎" %}
-                            {% elsif row.Rating == " 2" %}
-                                {% assign ratingValue = "Alright 👋" %}
-                            {% elsif row.Rating == " 3" %}
-                                {% assign ratingValue = "Good 👍" %}
-                            {% elsif row.Rating == " 4" %}
-                                {% assign ratingValue = "Love ❤️" %}
-                            {% endif %}
-                            <div class="item rating-{{ row.Rating | strip }}">
-                                <span class="name">{{ row.Name }}</span>
-                                <span class="rating">{{ ratingValue }}</span>
-                            </div>
-                        {% endfor %}
+                    {% assign mydataAlphabetical = mydata | sort:'Name' %}
+                    {% for row in mydataAlphabetical %}   
+                        {% if row.Rating == " 1" %}
+                            {% assign ratingValue = "Bad 👎" %}
+                        {% elsif row.Rating == " 2" %}
+                            {% assign ratingValue = "Alright 👋" %}
+                        {% elsif row.Rating == " 3" %}
+                            {% assign ratingValue = "Good 👍" %}
+                        {% elsif row.Rating == " 4" %}
+                            {% assign ratingValue = "Love ❤️" %}
+                        {% endif %}
+                        <div class="item rating-{{ row.Rating | strip }}">
+                            <span class="name">{{ row.Name }}</span>
+                            <span class="rating">{{ ratingValue }}</span>
+                        </div>
                     {% endfor %}
                 </div>
             </div>
@@ -137,7 +135,7 @@
                             {% elsif row.Rating == " 3" %}
                                 {% assign ratingValue = "Good 👍" %}
                             {% elsif row.Rating == " 4" %}
-                                {% assign ratingValue = "Loved ❤️" %}
+                                {% assign ratingValue = "Love ❤️" %}
                             {% endif %}
                             {% if lastRating != row.Rating %}
                                 <div class="break"></div>
