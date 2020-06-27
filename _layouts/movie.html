@@ -54,7 +54,7 @@
         <div>
             <div id="chronological-list">
                 <div class="list">
-                    {% for row in site.data.movie-ratings %}    
+                    {% for row in mydata %}    
                         {% if row.Rating == " 1" %}
                             {% assign ratingValue = "Bad 👎" %}
                         {% elsif row.Rating == " 2" %}
