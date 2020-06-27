@@ -53,7 +53,7 @@
 
 <!--         {% assign order = "Chronological" %} -->
 <!--         {% if order == "Chronological" %} -->
-        <div class="chronological-list">
+        <div id="chronological-list">
             {% for row in site.data.movie-ratings %}    
                 {% if row.Rating == " 1" %}
                     {% assign ratingValue = "Bad 👎" %}
@@ -71,7 +71,7 @@
             {% endfor %}
         </div>
 <!--         {% elsif order == "Grouped" %} -->
-        <div class="grouped-list">
+        <div id="grouped-list">
             {% assign lastRating = " 4" %}
             {% for r in ratingsSorted %}
                 {% assign ratingsTitleSorted = r.items | sort:'Name' %}
@@ -102,12 +102,16 @@
 
     <script>
         function orderChronologically() {
-            const list = document.getElementsByClassName('grouped-list');
+            const list = document.getElementById('grouped-list');
             list.style.display = "none";
+            const list = document.getElementById('chronological-list');
+            list.style.display = "";
         }
         
         function orderGrouped() {
-            const list = document.getElementsByClassName('chronological-list');
+            const list = document.getElementById('grouped-list');
+            list.style.display = "";
+            const list = document.getElementById('chronological-list');
             list.style.display = "none";
         }
         
