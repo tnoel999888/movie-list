@@ -45,16 +45,60 @@
 
         <p class="filter-wrap"><input type="text" id="filter" onkeyup="filter()" placeholder="Search..." /></p>
         <p>
-            <input type="radio" id="chronological" name="order" value="chronological" onclick="orderChronologically()" checked>
-            <label for="chronological">Chronological</label><br>
-            <input type="radio" id="grouped" name="order" value="grouped" onclick="orderGrouped()">
+            <input 
+                type="radio" 
+                id="chronologicalOldestNewest" 
+                name="order" 
+                value="chronologicalOldestNewest" 
+                onclick="orderChronologicallyOldestNewest()" 
+                checked
+            >
+            <label for="chronologicalOldestNewest">Chronological (Oldest - Newest)</label><br>
+
+            <input 
+                type="radio" 
+                id="chronologicalNewestOldest" 
+                name="order" 
+                value="chronologicalNewestOldest" 
+                onclick="orderChronologicallyNewestOldest()" 
+                checked
+            >
+            <label for="chronologicalNewestOldest">Chronological (Newest - Oldest)</label><br>
+
+            <input 
+                type="radio" 
+                id="grouped" 
+                name="order" 
+                value="grouped" 
+                onclick="orderGrouped()"
+                >
             <label for="grouped">Ratings Grouped</label><br>
         </p>
 
         <div>
-            <div id="chronological-list">
+            <div id="chronological-oldest-newest-list">
                 <div class="list">
                     {% for row in mydata %}    
+                        {% if row.Rating == " 1" %}
+                            {% assign ratingValue = "Bad 👎" %}
+                        {% elsif row.Rating == " 2" %}
+                            {% assign ratingValue = "Alright 👋" %}
+                        {% elsif row.Rating == " 3" %}
+                            {% assign ratingValue = "Good 👍" %}
+                        {% elsif row.Rating == " 4" %}
+                            {% assign ratingValue = "Love ❤️" %}
+                        {% endif %}
+                        <div class="item rating-{{ row.Rating | strip }}">
+                            <span class="name">{{ row.Name }}</span>
+                            <span class="rating">{{ ratingValue }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div id="chronological-newest-oldest-list">
+                <div class="list">
+                    {% for row in mydata.reverse %}    
                         {% if row.Rating == " 1" %}
                             {% assign ratingValue = "Bad 👎" %}
                         {% elsif row.Rating == " 2" %}
@@ -104,18 +148,37 @@
     </section>
 
     <script>
-        function orderChronologically() {
+        function orderChronologicallyOldestNewest() {
             const groupedList = document.getElementById('grouped-list');
             groupedList.style.display = "none";
-            const chronologicalList = document.getElementById('chronological-list');
-            chronologicalList.style.display = "";
+
+            const chronologicalOldestNewestList = document.getElementById('chronological-oldest-newest-list');
+            chronologicalOldestNewestList.style.display = "";
+
+            const chronologicalNewestOldestList = document.getElementById('chronological-newest-oldest-list');
+            chronologicalNewestOldestList.style.display = "none";
+        }
+
+        function orderChronologicallyNewestOldest() {
+            const groupedList = document.getElementById('grouped-list');
+            groupedList.style.display = "none";
+
+            const chronologicalOldestNewestList = document.getElementById('chronological-oldest-newest-list');
+            chronologicalOldestNewestList.style.display = "none";
+
+            const chronologicalNewestOldestList = document.getElementById('chronological-newest-oldest-list');
+            chronologicalNewestOldestList.style.display = "";
         }
         
         function orderGrouped() {
             const groupedList = document.getElementById('grouped-list');
             groupedList.style.display = "";
-            const chronologicalList = document.getElementById('chronological-list');
-            chronologicalList.style.display = "none";
+
+            const chronologicalOldestNewestList = document.getElementById('chronological-oldest-newest-list');
+            chronologicalOldestNewestList.style.display = "none";
+
+            const chronologicalNewestOldestList = document.getElementById('chronological-newest-oldest-list');
+            chronologicalNewestOldestList.style.display = "none";
         }
         
         function filter() {
