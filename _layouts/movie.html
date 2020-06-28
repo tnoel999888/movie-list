@@ -21,15 +21,14 @@
                 <div class="vertical-line"></div>
 
                 <div class="list">
-                        <p class="last5">Top 5 Movies</p>
-                        <div class="break"></div>
-                        {% assign movies = ratingsSorted | reverse  %}
-                        {% for i in (0..4) %}
-                            <div class="last-5-item rating-{{ movies[i].Rating | strip }}">
-                                <span class="name">{{ movies[i].Name }}</span>
-                                <span class="name">{{ movies[i].Rating }}</span>
-                            </div>
-                        {% endfor %}
+                    <p class="last5">Top 5 Movies</p>
+                    <div class="break"></div>
+                    {% for i in (0..4) %}
+                        <div class="last-5-item rating-{{ movies[i].Rating | strip }}">
+                            <span class="name">{{ ratingsSorted[i].Name }}</span>
+                            <span class="name">{{ ratingsSorted[i].Rating }}</span>
+                        </div>
+                    {% endfor %}
                 </div>
             {% endif %}
         </div>
