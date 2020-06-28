@@ -23,14 +23,12 @@
                 <div class="list">
                     <p class="last5">Top 5 Movies</p>
                     <div class="break"></div>
-                    <span class="rating">{{ ratingsSorted }}</span>
 
                     {% for r in ratingsSorted %}
-                        <span class="rating">{{ r }}</span>
                         {% assign ratingsSortedItems = r.items | sort:'Name' %}
                         {% for i in (0..4) %}
                             <div class="last-5-item rating-{{ movies[i].Rating | strip }}">
-                                <span class="name">{{ ratingsSortedItems[i].Name }}</span>
+                                <span class="name">{{ ratingsSortedItems[0][i].Name }}</span>
                                 <span class="rating">Top 5 🌟</span>
                             </div>
                         {% endfor %}
