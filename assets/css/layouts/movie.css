@@ -81,6 +81,10 @@
     font-size: 15px;
 }
 
+.sortRadioButton {
+    padding-right: 30px;
+}
+
 .rating-5 {
     background: #209112;
     color: #fff;

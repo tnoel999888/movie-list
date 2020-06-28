@@ -34,44 +34,36 @@
         </div>
 
         <p class="filter-wrap"><input type="text" id="filter" onkeyup="filter()" placeholder="Search..." /></p>
-        <p>
+        <div>
+            <label>Sort:</label>
             <input 
                 type="radio" 
-                id="chronologicalNewestOldest" 
-                name="order" 
-                value="chronologicalNewestOldest" 
                 onclick="orderChronologicallyNewestOldest()" 
                 checked
             >
-            <label for="chronologicalNewestOldest">Chronological (Newest - Oldest)</label><br>
+            <label for="chronologicalNewestOldest" class="sortRadioButtonLabel">Chronological (Newest - Oldest)</label>
 
             <input 
                 type="radio" 
-                id="chronologicalOldestNewest" 
-                name="order" 
-                value="chronologicalOldestNewest" 
+                class="sortRadioButton" 
                 onclick="orderChronologicallyOldestNewest()" 
             >
-            <label for="chronologicalOldestNewest">Chronological (Oldest - Newest)</label><br>
+            <label for="chronologicalOldestNewest" class="sortRadioButtonLabel">Chronological (Oldest - Newest)</label>
 
             <input 
                 type="radio" 
-                id="alphabetically" 
-                name="order" 
-                value="alphabetically" 
+                class="sortRadioButton" 
                 onclick="orderAlphabetically()" 
             >
-            <label for="alphabetically">Alphabetical</label><br>
+            <label for="alphabetically" class="sortRadioButtonLabel">Alphabetical</label>
 
             <input 
                 type="radio" 
-                id="grouped" 
-                name="order" 
-                value="grouped" 
+                class="sortRadioButton" 
                 onclick="orderGrouped()"
                 >
-            <label for="grouped">Ratings Grouped</label><br>
-        </p>
+            <label for="grouped" class="sortRadioButtonLabel">Ratings Grouped</label>
+        </div>
 
         <div>
             <div id="chronological-newest-oldest-list">
