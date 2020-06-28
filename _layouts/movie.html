@@ -20,7 +20,7 @@
             <div class="vertical-line"></div>
 
             <div class="list">
-                <p class="top5">Top 5</p>
+                <p class="top5">Top 5:</p>
                 <div class="break"></div>
                 {% assign top5Category = ratingsSorted[0].items | sort:'Name' %}
 
@@ -33,36 +33,62 @@
             </div>
         </div>
 
-        <p class="filter-wrap"><input type="text" id="filter" onkeyup="filter()" placeholder="Search..." /></p>
+        <div class="filter-wrap"><input type="text" id="filter" onkeyup="filter()" placeholder="Search..." /></div>
+
         <div class="sorting">
             <label>Sort:</label>
+
             <input 
                 type="radio" 
+                id="orderChronologicallyNewestOldest"
                 onclick="orderChronologicallyNewestOldest()" 
                 checked
             >
-            <label class="sort-radio-button-label">Chronological (Newest - Oldest)</label>
+            <label 
+                class="sort-radio-button-label"
+                for="orderChronologicallyNewestOldest"
+            >
+                Chronological (Newest - Oldest)
+            </label>
 
             <input 
                 type="radio" 
+                id="orderChronologicallyOldestNewest"
                 class="sortRadioButton" 
                 onclick="orderChronologicallyOldestNewest()" 
             >
-            <label class="sort-radio-button-label">Chronological (Oldest - Newest)</label>
+            <label 
+                class="sort-radio-button-label" 
+                for="orderChronologicallyOldestNewest"
+            >
+                Chronological (Oldest - Newest)
+            </label>
 
             <input 
                 type="radio" 
+                id="orderAlphabetically"
                 class="sortRadioButton" 
                 onclick="orderAlphabetically()" 
             >
-            <label class="sort-radio-button-label">Alphabetical</label>
+            <label 
+                class="sort-radio-button-label"
+                for="orderAlphabetically"
+            >
+                Alphabetical
+            </label>
 
             <input 
                 type="radio" 
+                id="orderGrouped"
                 class="sortRadioButton" 
                 onclick="orderGrouped()"
-                >
-            <label class="sort-radio-button-label">Ratings Grouped</label>
+            >
+            <label 
+                class="sort-radio-button-label"
+                for="orderGrouped"
+            >
+                Ratings Grouped
+            </label>
         </div>
 
         <div>
