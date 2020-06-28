@@ -24,6 +24,10 @@
                     <p class="last5">Top 5 Movies</p>
                     <div class="break"></div>
                     {% assign top5Category = ratingsSorted[0].items %}
+                    <span class="rating">ratingsSorted: {{ ratingsSorted }}</span>
+                    <span class="rating">ratingsSorted[0]: {{ ratingsSorted[0] }}</span>
+                    <span class="rating">ratingsSorted[0].items: {{ ratingsSorted[0].items }}</span>
+                    <span class="rating">top5Category: {{ top5Category }}</span>
 
                     {% for r in top5Category %}
                         <div class="last-5-item rating-{{ movies[i].Rating | strip }}">
