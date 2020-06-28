@@ -82,8 +82,13 @@
     font-size: 15px;
 }
 
-.rating-4 {
+.rating-5 {
     background: #209112;
+    color: #fff;
+}
+
+.rating-4 {
+    background: #669f11;
     color: #fff;
 }
 
