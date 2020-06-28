@@ -16,6 +16,22 @@
 
         <div class="movie-top">
             <p class="total">Total {{ page.dataset }}: {{ mydata.size }}</p>
+
+            {% if page.dataset == "movies" %}
+                <div class="vertical-line"></div>
+
+                <div class="list">
+                        <p class="last5">Top 5 Movies</p>
+                        <div class="break"></div>
+                        {% assign movies = ratingsSorted | reverse  %}
+                        {% for i in (0..4) %}
+                            <div class="last-5-item rating-{{ movies[i].Rating | strip }}">
+                                <span class="name">{{ movies[i].Name }}</span>
+                                <span class="name">{{ movies[i].Rating }}</span>
+                            </div>
+                        {% endfor %}
+                </div>
+            {% endif %}
         </div>
 
         <p class="filter-wrap"><input type="text" id="filter" onkeyup="filter()" placeholder="Search..." /></p>
@@ -71,6 +87,8 @@
                             {% assign ratingValue = "Good 👍" %}
                         {% elsif row.Rating == " 4" %}
                             {% assign ratingValue = "Love ❤️" %}
+                        {% elsif row.Rating == " 5" %}
+                            {% assign ratingValue = "Top 5 🌟" %}
                         {% endif %}
                         <div class="item rating-{{ row.Rating | strip }}">
                             <span class="name">{{ row.Name }}</span>
@@ -91,6 +109,8 @@
                             {% assign ratingValue = "Good 👍" %}
                         {% elsif row.Rating == " 4" %}
                             {% assign ratingValue = "Love ❤️" %}
+                        {% elsif row.Rating == " 5" %}
+                            {% assign ratingValue = "Top 5 🌟" %}
                         {% endif %}
                         <div class="item rating-{{ row.Rating | strip }}">
                             <span class="name">{{ row.Name }}</span>
@@ -112,6 +132,8 @@
                             {% assign ratingValue = "Good 👍" %}
                         {% elsif row.Rating == " 4" %}
                             {% assign ratingValue = "Love ❤️" %}
+                        {% elsif row.Rating == " 5" %}
+                            {% assign ratingValue = "Top 5 🌟" %}
                         {% endif %}
                         <div class="item rating-{{ row.Rating | strip }}">
                             <span class="name">{{ row.Name }}</span>
@@ -136,6 +158,8 @@
                                 {% assign ratingValue = "Good 👍" %}
                             {% elsif row.Rating == " 4" %}
                                 {% assign ratingValue = "Love ❤️" %}
+                            {% elsif row.Rating == " 5" %}
+                                {% assign ratingValue = "Top 5 🌟" %}
                             {% endif %}
                             {% if lastRating != row.Rating %}
                                 <div class="break"></div>
