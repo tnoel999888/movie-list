@@ -20,12 +20,12 @@
             <div class="vertical-line"></div>
 
             <div class="list">
-                <p class="last5">Top 5</p>
+                <p class="top5">Top 5</p>
                 <div class="break"></div>
                 {% assign top5Category = ratingsSorted[0].items | sort:'Name' %}
 
                 {% for row in top5Category %}
-                    <div class="last-5-item rating-{{ row.Rating | strip }}">
+                    <div class="top-5-item rating-{{ row.Rating | strip }}">
                         <span class="name">{{ row.Name }}</span>
                         <span class="rating">Top 5 🌟</span>
                     </div>
