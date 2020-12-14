@@ -12,6 +12,10 @@
             {% assign mydata = site.data.tv-ratings %}
             {% assign ratings = site.data.tv-ratings | group_by: 'Rating' %}
             {% assign ratingsSorted = (ratings | sort:'name') | reverse %}
+        {% elsif page.dataset == "books" %}
+            {% assign mydata = site.data.books-ratings %}
+            {% assign ratings = site.data.books-ratings | group_by: 'Rating' %}
+            {% assign ratingsSorted = (ratings | sort:'name') | reverse %}
         {% endif %}
 
         <div class="movie-top">
