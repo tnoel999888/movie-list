@@ -1,6 +1,6 @@
-- name: Movies
+- name: Movies list
   url: /
-- name: TV
+- name: TV list
   url: tv
-- name: Books
+- name: Books list
   url: books
