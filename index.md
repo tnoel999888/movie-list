@@ -1,6 +1,6 @@
 ---
 layout: movie
-title: Tim's Movie List
+title: Tim's Lists
 dataset: movies
-nav: Movies list
+nav: Movies
 ---
