@@ -201,13 +201,13 @@
                     {% assign counter = counter | plus:1 %}
                     {% assign rating_array = rating_array | push: counter %}
                 </div>
+                <div>
+                    <p class="bottom-rating-list">
+                        {% assign love_rating = rating_array[0] | minus:1 %}
+                        Love: {{ love_rating }} | Good: {{ rating_array[1] }} | Alright: {{ rating_array[2] }} | Bad: {{ rating_array[3] }}
+                    </p>
+                </div>
             </div>
-        </div>
-        <div>
-            <p class="bottom-rating-list">
-                {% assign love_rating = rating_array[0] | minus:1 %}
-                Love: {{ love_rating }} | Good: {{ rating_array[1] }} | Alright: {{ rating_array[2] }} | Bad: {{ rating_array[3] }}
-            </p>
         </div>
     </section>
 
