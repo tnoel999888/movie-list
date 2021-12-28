@@ -4,3 +4,5 @@
   url: tv
 - name: Books
   url: books
+- name: Restaurants
+  url: restaurants
