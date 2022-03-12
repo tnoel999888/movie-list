@@ -90,13 +90,18 @@
     padding-right: 30px;
 }
 
-.rating-5 {
+.rating-6 {
     background: #17b19d;
     color: #fff;
 }
 
-.rating-4 {
+.rating-5 {
     background: #4c8200;
+    color: #fff;
+}
+
+.rating-4 {
+    background: #74c600;
     color: #fff;
 }
 
