@@ -115,8 +115,10 @@
                         {% elsif row.Rating == " 3" %}
                             {% assign ratingValue = "Good 👍" %}
                         {% elsif row.Rating == " 4" %}
-                            {% assign ratingValue = "Love ❤️" %}
+                            {% assign ratingValue = "Great 🙌" %}
                         {% elsif row.Rating == " 5" %}
+                            {% assign ratingValue = "Love ❤️" %}
+                        {% elsif row.Rating == " 6" %}
                             {% assign ratingValue = "Top 5 🌟" %}
                         {% endif %}
                         <div class="item rating-{{ row.Rating | strip }}">
@@ -137,8 +139,10 @@
                         {% elsif row.Rating == " 3" %}
                             {% assign ratingValue = "Good 👍" %}
                         {% elsif row.Rating == " 4" %}
-                            {% assign ratingValue = "Love ❤️" %}
+                            {% assign ratingValue = "Great 🙌" %}
                         {% elsif row.Rating == " 5" %}
+                            {% assign ratingValue = "Love ❤️" %}
+                        {% elsif row.Rating == " 6" %}
                             {% assign ratingValue = "Top 5 🌟" %}
                         {% endif %}
                         <div class="item rating-{{ row.Rating | strip }}">
@@ -160,8 +164,10 @@
                         {% elsif row.Rating == " 3" %}
                             {% assign ratingValue = "Good 👍" %}
                         {% elsif row.Rating == " 4" %}
-                            {% assign ratingValue = "Love ❤️" %}
+                            {% assign ratingValue = "Great 🙌" %}
                         {% elsif row.Rating == " 5" %}
+                            {% assign ratingValue = "Love ❤️" %}
+                        {% elsif row.Rating == " 6" %}
                             {% assign ratingValue = "Top 5 🌟" %}
                         {% endif %}
                         <div class="item rating-{{ row.Rating | strip }}">
@@ -188,8 +194,10 @@
                             {% elsif row.Rating == " 3" %}
                                 {% assign ratingValue = "Good 👍" %}
                             {% elsif row.Rating == " 4" %}
-                                {% assign ratingValue = "Love ❤️" %}
+                                {% assign ratingValue = "Great 🙌" %}
                             {% elsif row.Rating == " 5" %}
+                                {% assign ratingValue = "Love ❤️" %}
+                            {% elsif row.Rating == " 6" %}
                                 {% assign ratingValue = "Top 5 🌟" %}
                             {% endif %}
                             {% if lastRating != row.Rating %}
@@ -210,7 +218,7 @@
                 <div>
                     <p class="bottom-rating-list">
                         {% assign love_rating = rating_array[0] | minus:1 %}
-                        Love: {{ love_rating }} | Good: {{ rating_array[1] }} | Alright: {{ rating_array[2] }} | Bad: {{ rating_array[3] }}
+                        Love: {{ love_rating }} | Great: {{ rating_array[1] }} | Good: {{ rating_array[2] }} | Alright: {{ rating_array[3] }} | Bad: {{ rating_array[4] }}
                     </p>
                 </div>
             </div>
