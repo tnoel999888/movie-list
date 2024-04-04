@@ -5,4 +5,7 @@
     <link rel="stylesheet" href="{{ '/assets/css/index.css' | relative_url }}">
     <link rel="icon" href="https://img.icons8.com/metro/26/000000/movie.png" type="image/x-icon" />
     <script src="https://kit.fontawesome.com/76de29c00b.js" crossorigin="anonymous"></script>
+    {% if site.google_analytics and jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
 </head>
