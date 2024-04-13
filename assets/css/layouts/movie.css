@@ -240,6 +240,7 @@
     justify-content: center;
 }
 
+.top-10-item:hover,
 .item:hover {
     filter: brightness(105%);
     box-shadow: 5px 6px 9px #1a1a1a;
